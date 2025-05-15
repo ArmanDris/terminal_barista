@@ -2,7 +2,11 @@
 name = "terminal_barista"
 version = "1.0.0"
 authors = ["Arman Drismir"]
+license = "None"
 description = "Whip up drinks from the command line ☕️"
+homepage = "https://github.com/ArmanDris/terminal_barista"
+repository = "https://github.com/ArmanDris/terminal_barista"
+readme = "README.md"
 keywords = ["game", "ratatui", "gui"]
 edition = "2024"
 
