@@ -10,7 +10,7 @@ readme = "README.md"
 keywords = ["game", "ratatui", "gui"]
 edition = "2024"
 
-categories = ["game", ]
+categories = ["games"]
 
 [dependencies]
 crossterm = "0.29.0"
