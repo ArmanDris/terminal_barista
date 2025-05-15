@@ -1,0 +1,14 @@
+[package]
+name = "terminal_barista"
+version = "1.0.0"
+authors = ["Arman Drismir"]
+description = "Whip up drinks from the command line ☕️"
+keywords = ["game", "ratatui", "gui"]
+edition = "2024"
+
+categories = ["game", ]
+
+[dependencies]
+crossterm = "0.29.0"
+rand = "0.9.1"
+ratatui = "0.29.0"
