@@ -71,7 +71,13 @@ pub fn scramble_cups() -> Vec<Cup> {
     let mut cups = vec![
         Cup {
             capacity: 5,
-            liquids: vec![LiquidColors::Red, LiquidColors::Red, LiquidColors::Red],
+            liquids: vec![
+                LiquidColors::Red,
+                LiquidColors::Red,
+                LiquidColors::Red,
+                LiquidColors::Red,
+                LiquidColors::Red,
+            ],
         },
         Cup {
             capacity: 5,
@@ -79,18 +85,30 @@ pub fn scramble_cups() -> Vec<Cup> {
                 LiquidColors::Green,
                 LiquidColors::Green,
                 LiquidColors::Green,
+                LiquidColors::Green,
+                LiquidColors::Green,
             ],
         },
         Cup {
             capacity: 5,
-            liquids: vec![LiquidColors::Blue, LiquidColors::Blue, LiquidColors::Blue],
+            liquids: vec![
+                LiquidColors::Blue,
+                LiquidColors::Blue,
+                LiquidColors::Blue,
+                LiquidColors::Blue,
+                LiquidColors::Blue,
+            ],
+        },
+        Cup {
+            capacity: 5,
+            liquids: vec![],
         },
         Cup {
             capacity: 5,
             liquids: vec![],
         },
     ];
-    let iterations = 1000;
+    let iterations = 1;
     for _ in 0..iterations {
         let src_idx = rand::random_range(0..cups.len());
         let dst_idx = rand::random_range(0..cups.len());

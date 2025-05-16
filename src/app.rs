@@ -1,7 +1,7 @@
 use crate::cup::scramble_cups;
 use crate::cup::Cup;
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub enum CurrentScreen {
     #[default]
     Welcome,
