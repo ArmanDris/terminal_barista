@@ -108,7 +108,7 @@ pub fn scramble_cups() -> Vec<Cup> {
             liquids: vec![],
         },
     ];
-    let iterations = 1;
+    let iterations = 10000;
     for _ in 0..iterations {
         let src_idx = rand::random_range(0..cups.len());
         let dst_idx = rand::random_range(0..cups.len());
