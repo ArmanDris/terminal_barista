@@ -1,6 +1,6 @@
 # terminal_barista
 
-![./assets/TerminalBarista.png]
+!(Ratatui running in the command line)[./assets/TerminalBarista.png]
 
 Whip up drinks by sorting each color into it's own cup.
 
