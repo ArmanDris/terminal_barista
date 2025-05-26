@@ -34,10 +34,20 @@ pub fn pour_a_into_b(a: &Cup, b: &Cup) -> Result<(Cup, Cup), String> {
     if b_top.is_some() && b_top.unwrap() != a_top {
         return Err("Source and destination colors do not match".to_string());
     }
+    let mut num_a_to_pour = 0;
+    for liq in a.liquids.iter().rev() {
+        if liq == a_top && b.liquids.len() + num_a_to_pour < b.capacity {
+            num_a_to_pour += 1;
+        } else {
+            break;
+        }
+    }
     let mut new_a_liquids = a.liquids.clone();
     let mut new_b_liquids = b.liquids.clone();
-    let moving_liquid = new_a_liquids.pop();
-    new_b_liquids.push(moving_liquid.unwrap());
+    for _ in 0..num_a_to_pour {
+        let moving_liquid = new_a_liquids.pop();
+        new_b_liquids.push(moving_liquid.unwrap());
+    }
     let cup_one = Cup {
         capacity: a.capacity,
         liquids: new_a_liquids,
@@ -49,7 +59,12 @@ pub fn pour_a_into_b(a: &Cup, b: &Cup) -> Result<(Cup, Cup), String> {
     Ok((cup_one, cup_two))
 }
 
-fn unrestricted_pour_a_into_b(a: &Cup, b: &Cup) -> Result<(Cup, Cup), String> {
+// This function does 2 things differently then the
+// traditional "pour" function in the game.
+//   1. It ignores color difference rules
+//   2. It will not pour all of a color into
+//      a cup, it will only pour one unit
+fn unrestricted_pop_a_into_b(a: &Cup, b: &Cup) -> Result<(Cup, Cup), String> {
     if std::ptr::eq(a, b) {
         return Err("Cannot pour a cup into itself".to_string());
     }
@@ -112,7 +127,7 @@ pub fn scramble_cups() -> Vec<Cup> {
     for _ in 0..iterations {
         let src_idx = rand::random_range(0..cups.len());
         let dst_idx = rand::random_range(0..cups.len());
-        if let Ok((new_src, new_dst)) = unrestricted_pour_a_into_b(&cups[src_idx], &cups[dst_idx]) {
+        if let Ok((new_src, new_dst)) = unrestricted_pop_a_into_b(&cups[src_idx], &cups[dst_idx]) {
             cups[src_idx] = new_src;
             cups[dst_idx] = new_dst;
         }
