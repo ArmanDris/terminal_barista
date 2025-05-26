@@ -79,7 +79,6 @@ fn run_app<B: Backend>(terminal: &mut Terminal<B>, app: &mut App) -> io::Result<
                                 Err(msg) => app.tooltip = Some(msg),
                             }
                             if cup::are_cups_solved(&app.cups) {
-                                app.tooltip = Some("You win!".to_string());
                                 app.current_screen = CurrentScreen::Finished;
                             }
                         }
