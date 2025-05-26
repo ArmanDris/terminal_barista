@@ -103,7 +103,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let backend = CrosstermBackend::new(stderr);
     let mut terminal = Terminal::new(backend)?;
     let mut app = App::new();
-    let res = run_app(&mut terminal, &mut app);
+    let _res = run_app(&mut terminal, &mut app);
     disable_raw_mode()?;
     execute!(
         terminal.backend_mut(),
@@ -111,12 +111,6 @@ fn main() -> Result<(), Box<dyn Error>> {
         DisableMouseCapture,
     )?;
     terminal.show_cursor()?;
-
-    if res.is_ok() {
-        println!("App exited with Ok");
-    } else if let Err(err) = res {
-        println!("{err:?}");
-    }
 
     Ok(())
 }
