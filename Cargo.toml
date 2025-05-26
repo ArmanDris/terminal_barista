@@ -1,6 +1,6 @@
 [package]
 name = "terminal_barista"
-version = "2.1.0"
+version = "2.2.0"
 authors = ["Arman Drismir"]
 license-file = "LICENSE.txt"
 description = "Whip up drinks from the command line ☕️"
