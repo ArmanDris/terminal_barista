@@ -85,6 +85,7 @@ pub fn ui(frame: &mut Frame, app: &App) {
                     .title_bottom(format!("[{}]", i + 1))
                     .title_alignment(Alignment::Center)
                     .borders(Borders::BOTTOM | Borders::LEFT | Borders::RIGHT)
+                    .border_type(BorderType::Rounded)
                     .title_style(Style::new().bg(Color::White).fg(Color::Black)),
                 cups_layout[i],
             );
