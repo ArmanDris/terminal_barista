@@ -1,6 +1,7 @@
 mod app;
 mod cup;
 mod liquids;
+mod level_creator;
 mod ui;
 
 use std::{error::Error, io};
@@ -16,6 +17,7 @@ use ratatui::{
 };
 
 use cup::{pour_a_into_b, scramble_cups};
+use level_creator::{generate_cups, SimpleDifficulties};
 
 use crate::{
     app::{App, CurrentScreen},
@@ -23,17 +25,9 @@ use crate::{
 };
 
 fn _main_helper() -> Result<(), String> {
-    let mut r = scramble_cups();
-    if let Some(cup) = r.last() {
-        println!("Last cup: {:?}", cup);
-    }
-    r.pop();
-    if let Some(cup) = r.last() {
-        println!("Last cup: {:?}", cup);
-    }
-    r.pop();
-    if let Some(cup) = r.last() {
-        println!("Last cup: {:?}", cup);
+    let cups = generate_cups(SimpleDifficulties::Hard);
+    for cup in cups {
+        println!("{:?}", cup);
     }
     Ok(())
 }

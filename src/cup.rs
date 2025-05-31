@@ -82,57 +82,59 @@ fn unrestricted_pop_a_into_b(a: &Cup, b: &Cup) -> Result<(Cup, Cup), String> {
     Ok((new_a, new_b))
 }
 
-pub fn scramble_cups() -> Vec<Cup> {
-    let mut cups = vec![
-        Cup {
-            capacity: 5,
-            liquids: vec![
-                LiquidColors::Red,
-                LiquidColors::Red,
-                LiquidColors::Red,
-                LiquidColors::Red,
-                LiquidColors::Red,
-            ],
-        },
-        Cup {
-            capacity: 5,
-            liquids: vec![
-                LiquidColors::Green,
-                LiquidColors::Green,
-                LiquidColors::Green,
-                LiquidColors::Green,
-                LiquidColors::Green,
-            ],
-        },
-        Cup {
-            capacity: 5,
-            liquids: vec![
-                LiquidColors::Blue,
-                LiquidColors::Blue,
-                LiquidColors::Blue,
-                LiquidColors::Blue,
-                LiquidColors::Blue,
-            ],
-        },
-        Cup {
-            capacity: 5,
-            liquids: vec![],
-        },
-        Cup {
-            capacity: 5,
-            liquids: vec![],
-        },
-    ];
-    let iterations = 10000;
-    for _ in 0..iterations {
-        let src_idx = rand::random_range(0..cups.len());
-        let dst_idx = rand::random_range(0..cups.len());
-        if let Ok((new_src, new_dst)) = unrestricted_pop_a_into_b(&cups[src_idx], &cups[dst_idx]) {
-            cups[src_idx] = new_src;
-            cups[dst_idx] = new_dst;
-        }
-    }
-    cups
+pub fn scramble_cups(cups: Vec<Cup>) -> Vec<Cup> {
+    println!("Scramble cups' scrambling not implemented, stub running");
+    cups.clone()
+    // let mut cups = vec![
+    //     Cup {
+    //         capacity: 5,
+    //         liquids: vec![
+    //             LiquidColors::Red,
+    //             LiquidColors::Red,
+    //             LiquidColors::Red,
+    //             LiquidColors::Red,
+    //             LiquidColors::Red,
+    //         ],
+    //     },
+    //     Cup {
+    //         capacity: 5,
+    //         liquids: vec![
+    //             LiquidColors::Green,
+    //             LiquidColors::Green,
+    //             LiquidColors::Green,
+    //             LiquidColors::Green,
+    //             LiquidColors::Green,
+    //         ],
+    //     },
+    //     Cup {
+    //         capacity: 5,
+    //         liquids: vec![
+    //             LiquidColors::Blue,
+    //             LiquidColors::Blue,
+    //             LiquidColors::Blue,
+    //             LiquidColors::Blue,
+    //             LiquidColors::Blue,
+    //         ],
+    //     },
+    //     Cup {
+    //         capacity: 5,
+    //         liquids: vec![],
+    //     },
+    //     Cup {
+    //         capacity: 5,
+    //         liquids: vec![],
+    //     },
+    // ];
+    // let iterations = 10000;
+    // for _ in 0..iterations {
+    //     let src_idx = rand::random_range(0..cups.len());
+    //     let dst_idx = rand::random_range(0..cups.len());
+    //     if let Ok((new_src, new_dst)) = unrestricted_pop_a_into_b(&cups[src_idx], &cups[dst_idx]) {
+    //         cups[src_idx] = new_src;
+    //         cups[dst_idx] = new_dst;
+    //     }
+    // }
+    // cups
 }
 
 pub fn are_cups_solved(cups: &[Cup]) -> bool {

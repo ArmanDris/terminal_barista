@@ -1,5 +1,6 @@
 use crate::cup::scramble_cups;
 use crate::cup::Cup;
+use crate::level_creator::{SimpleDifficulties, generate_cups };
 
 #[derive(Debug, Default, PartialEq, Eq)]
 pub enum CurrentScreen {
@@ -21,7 +22,7 @@ impl App {
     pub fn new() -> App {
         App {
             current_screen: CurrentScreen::Main,
-            cups: scramble_cups(),
+            cups: scramble_cups(generate_cups(SimpleDifficulties::Hard)),
             src_selection: None,
             tooltip: None,
         }
